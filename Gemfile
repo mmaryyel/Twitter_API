@@ -1,5 +1,4 @@
 source :rubygems
-
 # PostgreSQL driver
 gem 'pg'
 
@@ -16,6 +15,8 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+#Twitter
+gem 'twitter'
 
 group :test do
   gem 'faker'

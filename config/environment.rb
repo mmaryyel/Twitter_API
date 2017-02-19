@@ -19,6 +19,7 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+require 'twitter'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
