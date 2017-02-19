@@ -32,3 +32,22 @@ Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file }
 
 # Configura la base de datos y modelos 
 require APP_ROOT.join('config', 'database')
+
+# Configura archivo yaml
+
+env_config = YAML.load_file(APP_ROOT.join('config', 'twitter.yml'))
+
+env_config.each do |key, value|
+	#llenamos el hash ENV con los keys y values del archivo twitter.yml
+  ENV[key] = value
+end
+
+# Configura twitter API
+
+CLIENT = Twitter::REST::Client.new do |config|
+  config.consumer_key        = ENV["CONSUMER_KEY"]
+  config.consumer_secret     = ENV["CONSUMER_SECRET"]
+  config.access_token        = ENV["ACCESS_TOKEN"]
+  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
+ end
+
